@@ -6,5 +6,5 @@ import server.model.Bank;
 import java.util.Optional;
 
 public interface BankRepository extends JpaRepository<Bank,Long> {
-
+        Optional<Bank> findById(Long id);
 }

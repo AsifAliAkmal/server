@@ -3,6 +3,7 @@ package server.model;
 
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
+import lombok.Data;
 import lombok.NoArgsConstructor;
 import server.payload.bank.BankDetails;
 
@@ -12,6 +13,7 @@ import javax.validation.constraints.Size;
 @Table(name="bank")
 @NoArgsConstructor
 @AllArgsConstructor
+@Data
 public class Bank {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -26,7 +28,7 @@ public class Bank {
     private String district;
 
     @Column(name="pin_code",nullable = false)
-    @Size(min=6,max = 6)
+    @Size(max=100)
     private Long pinCode;
 
     @Column(name = "state",nullable = false)

@@ -10,6 +10,7 @@ import server.model.Bank;
 import server.payload.bank.BankDetails;
 import server.service.bank.BankService;
 
+import javax.validation.Valid;
 import java.util.List;
 
 @RestController
@@ -27,18 +28,12 @@ public class BankController {
     @GetMapping("/byId")
     public ResponseEntity<Bank> findBankDetailById(@RequestParam("bankId") Long bankId){
         Bank bank = bankService.findById(bankId);
-        if(bank == null){
-            return new ResponseEntity(bank,HttpStatus.BAD_REQUEST);
-        }
         return new ResponseEntity(bank,HttpStatus.OK);
     }
 
     @PostMapping("/add")
-    public ResponseEntity<ApiResponse> addBank(@RequestBody BankDetails bankDetails){
+    public ResponseEntity<?> addBank(@Valid @RequestBody BankDetails bankDetails){
         ApiResponse response = bankService.addBank(bankDetails);
-        if(response.isSuccess()){
-            return new ResponseEntity(response,HttpStatus.OK);
-        }
-        return new ResponseEntity(response,HttpStatus.BAD_REQUEST);
+        return new ResponseEntity(response,HttpStatus.OK);
     }
 }

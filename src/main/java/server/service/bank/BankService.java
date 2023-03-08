@@ -2,6 +2,7 @@ package server.service.bank;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import server.exception.BadRequestException;
 import server.helper.ApiResponse;
 import server.model.Bank;
 import server.payload.bank.BankDetails;
@@ -15,7 +16,11 @@ public class BankService {
     @Autowired
     BankRepository repository;
     public Bank findById(Long id){
-        return repository.findById(id).orElse(null);
+        Bank bank =  repository.findById(id).orElse(null);
+        if(bank == null){
+            throw new BadRequestException("Bank details not found.");
+        }
+        return bank;
     }
 
     public Bank saveToDB(Bank bank){
