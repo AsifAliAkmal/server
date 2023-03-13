@@ -19,19 +19,19 @@ public class BankController {
     @Autowired
     BankService bankService;
 
-    @GetMapping()
+    @GetMapping("")
     public ResponseEntity<List<Bank>> findAllBankDetails(){
         List<Bank> list = bankService.findAll();
         return new ResponseEntity(list, HttpStatus.OK);
     }
 
-    @GetMapping("/byId")
+    @GetMapping("byId")
     public ResponseEntity<Bank> findBankDetailById(@RequestParam("bankId") Long bankId){
         Bank bank = bankService.findById(bankId);
         return new ResponseEntity(bank,HttpStatus.OK);
     }
 
-    @PostMapping("/add")
+    @PostMapping("add")
     public ResponseEntity<?> addBank(@Valid @RequestBody BankDetails bankDetails){
         ApiResponse response = bankService.addBank(bankDetails);
         return new ResponseEntity(response,HttpStatus.OK);

@@ -6,3 +6,9 @@ spring:
   jpa:
     hibernate:
       ddl-auto: update
+
+#Configuring static user credential
+  security:
+    user:
+      name: asif
+      password: asifali_11
