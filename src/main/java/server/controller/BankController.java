@@ -14,6 +14,7 @@ import javax.validation.Valid;
 import java.util.List;
 
 @RestController
+@CrossOrigin("http://localhost:300/")
 @RequestMapping("/api/bank")
 public class BankController {
     @Autowired

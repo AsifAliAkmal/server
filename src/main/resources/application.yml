@@ -12,3 +12,11 @@ spring:
     user:
       name: asif
       password: asifali_11
+
+#front-end
+front_end_url: http://localhost:3000
+
+#App Properties
+app:
+  jwtSecret: asdfgh1234xgh456xvbn456nhy343lknbb3434546hsshs8732bycsjs92328nsdjj2324324jnnuds39234j38y2jqi8q282222ehwyqw7wy72232nju8j28jw82j2
+  jwtExpritionInMs: 6080802git
